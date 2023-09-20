@@ -11,14 +11,6 @@
 
 (function () {
   "use strict";
-  const notificationOptions = {
-    text: "欢迎",
-    title: "自定义通知",
-    timeout: 5000, //
-  };
-
-  GM_notification(notificationOptions);
-  console.log("tamper test");
   const greetingMessage =
     "欢迎！打开该页面的时间：" + new Date().toLocaleTimeString();
   const greetingElement = document.createElement("div");
