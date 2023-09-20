@@ -12,4 +12,14 @@
 (function () {
   "use strict";
   console.log("tamper test");
+  const greetingMessage =
+    "欢迎！打开该页面的时间：" + new Date().toLocaleTimeString();
+  const greetingElement = document.createElement("div");
+  greetingElement.textContent = greetingMessage;
+  greetingElement.style.position = "fixed";
+  greetingElement.style.top = "0";
+  greetingElement.style.left = "0";
+  greetingElement.style.backgroundColor = "lightblue";
+  greetingElement.style.padding = "5px";
+  document.body.appendChild(greetingElement);
 })();
