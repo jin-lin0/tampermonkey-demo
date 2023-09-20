@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Text
 // @namespace   https://github.com/jin-lin0/tampermonkey-demo
-// @match       *://*
+// @match       *://*/*
 // @grant       none
 // @version     0.2
 // @author      -
