@@ -6,6 +6,7 @@
 // @version     0.1
 // @author      -
 // @description 2023/9/20 21:55:23
+// @license MIT
 // ==/UserScript==
 
 (function () {
