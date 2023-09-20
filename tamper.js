@@ -3,7 +3,7 @@
 // @namespace   https://github.com/jin-lin0/tampermonkey-demo
 // @match       *://*/*
 // @grant       none
-// @version     0.2
+// @version     0.3
 // @author      -
 // @description 2023/9/20 21:55:23
 // @license MIT
@@ -20,6 +20,7 @@
   greetingElement.style.top = "0";
   greetingElement.style.left = "0";
   greetingElement.style.backgroundColor = "lightblue";
+  greetingElement.style.color = "black";
   greetingElement.style.padding = "5px";
   document.body.appendChild(greetingElement);
 })();
