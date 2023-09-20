@@ -1,25 +1,33 @@
 // ==UserScript==
-// @name        Text
+// @name        知乎外链直转
 // @namespace   https://github.com/jin-lin0/tampermonkey-demo
-// @match       *://*/*
-// @grant       GM_notification
-// @version     0.3
-// @author      -
+// @version     0.4
 // @description 2023/9/20 21:55:23
+// @author      logyes
 // @license MIT
+
+// @run-at       document-start
+
+// @match       *://link.zhihu.com/*
+// @grant       none
+
 // ==/UserScript==
 
 (function () {
   "use strict";
-  const greetingMessage =
-    "欢迎！打开该页面的时间：" + new Date().toLocaleTimeString();
-  const greetingElement = document.createElement("div");
-  greetingElement.textContent = greetingMessage;
-  greetingElement.style.position = "fixed";
-  greetingElement.style.top = "0";
-  greetingElement.style.left = "0";
-  greetingElement.style.backgroundColor = "lightblue";
-  greetingElement.style.color = "black";
-  greetingElement.style.padding = "5px";
-  document.body.appendChild(greetingElement);
+  const targetUrl = document.URL.split("target=")[1];
+  let decodeTargetUrl = decodeURIComponent(targetUrl);
+  document.body.innerHTML = "Loading...";
+  window.location.href = decodeTargetUrl;
+
+  let styleElement = document.createElement("style");
+  styleElement.innerHTML = `
+    body{
+        display: flex;
+        justify-content: center;
+        font-size: 40px;
+        color: darkblue;
+    }
+  `;
+  document.head.appendChild(styleElement);
 })();
