@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name        知乎外链直转
+// @name        知乎、掘金外链直转
 // @namespace   https://github.com/jin-lin0/tampermonkey-demo
-// @version     0.4
+// @version     0.5
 // @description 2023/9/20 21:55:23
 // @author      logyes
 // @license MIT
@@ -9,6 +9,7 @@
 // @run-at       document-start
 
 // @match       *://link.zhihu.com/*
+// @match       *://link.juejin.cn/*
 // @grant       none
 
 // ==/UserScript==
