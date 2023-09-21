@@ -17,16 +17,35 @@
   "use strict";
   const targetUrl = document.URL.split("target=")[1];
   let decodeTargetUrl = decodeURIComponent(targetUrl);
-  document.body.innerHTML = "Loading...";
   window.location.href = decodeTargetUrl;
+
+  let loadingElement = document.createElement("div");
+  loadingElement.classList.add("loading");
+
+  document.body.innerHTML = "";
+  document.body.appendChild(loadingElement);
 
   let styleElement = document.createElement("style");
   styleElement.innerHTML = `
     body{
         display: flex;
         justify-content: center;
-        font-size: 40px;
-        color: darkblue;
+    }
+
+    .loading{
+        width: 100px;
+        height: 100px;
+        background: 
+        radial-gradient( closest-side circle, royalblue 99%, transparent 100%) center top/25% 25% no-repeat,
+        conic-gradient(transparent 10%, royalblue 90%);
+        -webkit-mask: radial-gradient( closest-side circle, transparent 50%, red 51% 99%, transparent 100%);
+        animation: rotate 1s linear infinite;
+    }
+
+    @keyframes rotate{
+        to{
+            transform: rotate(360deg);
+        }
     }
   `;
   document.head.appendChild(styleElement);
