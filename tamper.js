@@ -29,17 +29,21 @@
   let styleElement = document.createElement("style");
   styleElement.innerHTML = `
     body{
+        height: 100vh;
+        padding: 0;
         display: flex;
         justify-content: center;
+        align-items: center;
     }
 
     .loading{
         width: 100px;
         height: 100px;
-        background: 
-        radial-gradient( closest-side circle, royalblue 99%, transparent 100%) center top/25% 25% no-repeat,
+        background: conic-gradient(#2b6ee0, #bf6ee7,#2b6ee0);
+        -webkit-mask: radial-gradient( closest-side circle, royalblue 99%, transparent 100%) center top/25% 25% no-repeat,
+        radial-gradient( closest-side circle, transparent 50%, red 51% 99%, transparent 100%),
         conic-gradient(transparent 10%, royalblue 90%);
-        -webkit-mask: radial-gradient( closest-side circle, transparent 50%, red 51% 99%, transparent 100%);
+        -webkit-mask-composite: source-over, source-in;
         animation: rotate 1s linear infinite;
     }
 
