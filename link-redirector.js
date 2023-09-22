@@ -4,7 +4,7 @@
 // @version     0.5
 // @description 2023/9/20 21:55:23
 // @author      logyes
-// @license MIT
+// @license     MIT
 
 // @run-at       document-start
 
