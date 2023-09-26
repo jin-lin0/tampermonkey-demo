@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name        知乎、掘金外链直转
+// @name        知乎、掘金、51CTO外链直转
 // @namespace   https://github.com/jin-lin0/tampermonkey-demo
-// @version     0.5
+// @version     0.6
 // @description 2023/9/20 21:55:23
 // @author      logyes
 // @license     MIT
@@ -10,24 +10,23 @@
 
 // @match       *://link.zhihu.com/*
 // @match       *://link.juejin.cn/*
+// @match       *://blog.51cto.com/transfer*
 // @grant       none
 
 // ==/UserScript==
 
 (function () {
   "use strict";
-  const targetUrl = document.URL.split("target=")[1];
-  let decodeTargetUrl = decodeURIComponent(targetUrl);
-  window.location.href = decodeTargetUrl;
 
-  let loadingElement = document.createElement("div");
-  loadingElement.classList.add("loading");
+  function loading() {
+    let loadingElement = document.createElement("div");
+    loadingElement.classList.add("loading");
 
-  document.body.innerHTML = "";
-  document.body.appendChild(loadingElement);
+    document.body.innerHTML = "";
+    document.body.appendChild(loadingElement);
 
-  let styleElement = document.createElement("style");
-  styleElement.innerHTML = `
+    let styleElement = document.createElement("style");
+    styleElement.innerHTML = `
     body{
         height: 100vh;
         padding: 0;
@@ -53,5 +52,22 @@
         }
     }
   `;
-  document.head.appendChild(styleElement);
+    document.head.appendChild(styleElement);
+  }
+
+  const websiteMap = new Map([
+    ["link.zhihu.com/", { searchStr: "target" }],
+    ["link.juejin.cn/", { searchStr: "target" }],
+    ["blog.51cto.com/transfer", { searchStr: "" }],
+  ]);
+
+  const hostnameAndPath = window.location.hostname + window.location.pathname;
+  const searchParams = Object.fromEntries(
+    new URLSearchParams(window.location.search)
+  );
+  const searchConfig = websiteMap.get(hostnameAndPath);
+  let searchUrl =
+    searchParams[searchConfig.searchStr] || Object.keys(searchParams)[0];
+  window.location.href = decodeURIComponent(searchUrl);
+  loading();
 })();
