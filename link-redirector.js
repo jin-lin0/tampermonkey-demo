@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        知乎、掘金、51CTO外链直转
+// @name        外链直转
 // @namespace   https://github.com/jin-lin0/tampermonkey-demo
 // @version     0.6
 // @description 2023/9/20 21:55:23
