@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         图集网VIP
+// @name         图集岛VIP
 // @namespace    https://github.com/jin-lin0/tampermonkey-demo
 // @version      0.1
 // @description  2023/10/7
