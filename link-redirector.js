@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        外链直转
 // @namespace   https://github.com/jin-lin0/tampermonkey-demo
-// @version     0.6
+// @version     0.7
 // @description 2023/9/20 21:55:23
 // @author      logyes
 // @license     MIT
@@ -10,6 +10,7 @@
 
 // @match       *://link.zhihu.com/*
 // @match       *://link.juejin.cn/*
+// @match       *://sspai.com/link*
 // @match       *://blog.51cto.com/transfer*
 // @grant       none
 
@@ -59,6 +60,7 @@
     ["link.zhihu.com/", { searchStr: "target" }],
     ["link.juejin.cn/", { searchStr: "target" }],
     ["blog.51cto.com/transfer", { searchStr: "" }],
+    ["sspai.com/link", { searchStr: "target" }],
   ]);
 
   const hostnameAndPath = window.location.hostname + window.location.pathname;
