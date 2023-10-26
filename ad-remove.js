@@ -26,7 +26,10 @@
     if (skipButton) {
       skipButton.click();
     }
-    video.currentTime = video.duration;
+    if (video) {
+      video.currentTime = video.duration;
+    }
+
     return;
   };
 
