@@ -1,18 +1,22 @@
 // ==UserScript==
 // @name         Youtube视频广告去除
 // @namespace    https://github.com/jin-lin0/tampermonkey-demo
-// @version      0.1
+// @version      0.2
 // @description  2023/10/26
 // @author       logyes
 // @license      MPL-2.0
 
 // @match        *://*.youtube.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=greasyfork.org
-// @grant        none
+// @grant        GM_addStyle
 // ==/UserScript==
 
 (function () {
   "use strict";
+  GM_addStyle("#player-ads{display:none !important}");
+  GM_addStyle(
+    "ytd-rich-item-renderer:has(ytd-ad-slot-renderer){display:none !important}"
+  );
 
   let observer = null;
 
