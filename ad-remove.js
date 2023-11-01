@@ -14,6 +14,7 @@
 (function () {
   "use strict";
   GM_addStyle("#player-ads{display:none !important}");
+  GM_addStyle("ytd-ad-slot-renderer{display:none !important}");
   GM_addStyle(
     "ytd-rich-item-renderer:has(ytd-ad-slot-renderer){display:none !important}"
   );
